@@ -18,6 +18,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import cointracker.composeapp.generated.resources.Res
 import cointracker.composeapp.generated.resources.compose_multiplatform
+import com.nithin.cointracker.coins.presentation.CoinsListScreen
 import com.nithin.cointracker.theme.CoinTrackerTheme
 
 @Composable
@@ -25,6 +26,8 @@ import com.nithin.cointracker.theme.CoinTrackerTheme
 fun App() {
 
     CoinTrackerTheme {
+        CoinsListScreen {
 
+        }
     }
 }
