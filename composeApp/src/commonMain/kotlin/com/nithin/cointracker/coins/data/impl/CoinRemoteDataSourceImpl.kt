@@ -1,5 +1,6 @@
 package com.nithin.cointracker.coins.data.impl
 
+import com.nithin.cointracker.coins.data.dto.CoinItemDto
 import com.nithin.cointracker.coins.data.dto.CoinPriceHistoryResponseDto
 import com.nithin.cointracker.coins.data.dto.CoinsResponseDto
 import com.nithin.cointracker.coins.domain.api.CoinRemoteDataSource
@@ -24,7 +25,14 @@ class CoinRemoteDataSourceImpl(
 
     override suspend fun getPriceHistory(coinId: String): Result<CoinPriceHistoryResponseDto, DataError.Remote> {
         return safeCall {
-            httpClient.get(BASE_URL)
+            httpClient.get("$BASE_URL/coin/$coinId/history")
+        }
+    }
+
+    override suspend fun getCoin(coinId: String): Result<CoinItemDto, DataError.Remote> {
+        // TODO
+        return safeCall {
+            httpClient.get("$BASE_URL/coin/$coinId")
         }
     }
 
