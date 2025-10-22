@@ -26,14 +26,15 @@ fun PerformanceChat(
     val lineColor = if (nodes.last() > nodes.first()) profitColor else lossColor
 
     Canvas(
-        modifier = modifier.fillMaxSize()
+        modifier = modifier
+            .fillMaxSize()
     ){
 
         val path = Path()
 
         nodes.forEachIndexed { index, value ->
-            val x = index * (size.width / nodes.size - 1)
-            val y = size.height * (1 - ((value - min)/(max - min)).toFloat())
+            val x = (index) * (size.width / nodes.size - 1)
+            val y = size.height * (1- ((value - min)/(max - min)).toFloat())
 
             if (index == 0){
                 path.moveTo(x,y)
